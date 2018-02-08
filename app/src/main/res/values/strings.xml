@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Terminal Scan</string>
+    <string name="addTerminal">Add terminal</string>
+    <string name="addMonitor">Add monitor</string>
+    <string name="tabTerm">Terminals</string>
+    <string name="tabMon">Monitors</string>
+
+</resources>
