@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@android:color/background_light">
 
     <TextView
         android:id="@+id/textView"
@@ -33,7 +34,7 @@
             android:weightSum="1">
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/evStMon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -42,7 +43,7 @@
                 android:layout_weight="0.8"/>
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/btnScnMon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Scan"
@@ -51,7 +52,7 @@
         </TableRow>
 
         <Button
-            android:id="@+id/btnSaveTerm"
+            android:id="@+id/btnSaveMon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"

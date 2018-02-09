@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/background_light"
     android:orientation="vertical">
 
     <TextView
@@ -18,7 +19,7 @@
         android:layout_height="2dp"
         android:layout_margin="10dp"
         android:layout_marginTop="8dp"
-        android:background="@color/colorPrimary"/>
+        android:background="@color/colorPrimary" />
 
 
     <TableLayout
@@ -33,32 +34,32 @@
             android:weightSum="1">
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/evStTerm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="0.8"
                 android:ems="10"
                 android:hint="Service Tag"
-                android:inputType="text"
-                android:layout_weight="0.8"/>
+                android:inputType="text" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/btnScnStTerm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Scan"
-                android:layout_weight="0.2"/>
+                android:layout_weight="0.2"
+                android:text="Scan" />
 
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal"
-            android:weightSum="1"
-            android:layout_marginTop="20dp">
+            android:weightSum="1">
 
             <EditText
-                android:id="@+id/editText2"
+                android:id="@+id/evMacTerm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.8"
@@ -67,11 +68,11 @@
                 android:inputType="text" />
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/btnScnMacTerm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Scan"
-                android:layout_weight="0.2"/>
+                android:layout_weight="0.2"
+                android:text="Scan" />
         </TableRow>
 
         <Button
