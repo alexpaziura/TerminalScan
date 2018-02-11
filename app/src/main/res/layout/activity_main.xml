@@ -15,6 +15,7 @@
             android:id="@+id/tabHost"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+
             android:layout_weight="0.1" >
 
             <LinearLayout
@@ -44,6 +45,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:divider="@color/colorPrimary"
+                            android:background="@color/items"
                             android:dividerHeight="2dp" />
 
                     </LinearLayout>
@@ -59,6 +61,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:divider="@color/colorPrimary"
+                            android:background="@color/items"
                             android:dividerHeight="2dp" />
 
                     </LinearLayout>
@@ -70,18 +73,22 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
+            android:background="@color/colorPrimary"
             android:layout_weight="1">
 
             <Button
                 android:id="@+id/btnAddTerm"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="1dp"
                 android:layout_weight="1"
+
                 android:text="@string/addTerminal" />
 
             <Button
                 android:id="@+id/btnAddMon"
                 android:layout_width="match_parent"
+                android:layout_margin="1dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/addMonitor" />

@@ -14,8 +14,11 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.NavUtils;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -221,6 +224,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(!CheckEvTerm()) {
+                   // evStMon.setBackgroundTint(getResources().getColor(android.R.color.holo_red_dark));
                     return;
                 }
                 InsertTerminal();
@@ -254,13 +258,61 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        evStTerm.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if(evStTerm.getText().length()>0) {
+                    evStTerm.setBackgroundTintList(getResources().getColorStateList(R.color.colorPrimary));
+                }
+                else {
+                    evStTerm.setBackgroundTintList(getResources().getColorStateList(R.color.red));
+                }
+            }
+        });
+        evMacTerm.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if(evMacTerm.getText().length()>0) {
+                    evMacTerm.setBackgroundTintList(getResources().getColorStateList(R.color.colorPrimary));
+                }
+                else {
+                    evMacTerm.setBackgroundTintList(getResources().getColorStateList(R.color.red));
+                }
+            }
+        });
+
     }
 
     public boolean CheckEvTerm(){
 
         StTermHolder = evStTerm.getText().toString() ;
         MACTermHolder = evMacTerm.getText().toString();
-
+        if(TextUtils.isEmpty(StTermHolder)){
+            evStTerm.setBackgroundTintList(getResources().getColorStateList(R.color.red));
+        }
+        if(TextUtils.isEmpty(MACTermHolder)){
+            evMacTerm.setBackgroundTintList(getResources().getColorStateList(R.color.red));
+        }
         return !(TextUtils.isEmpty(StTermHolder) || TextUtils.isEmpty(MACTermHolder));
 /*        if){
             return false;
@@ -306,6 +358,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(!CheckEvMon()) {
+                    //evStMon.setHighlightColor(getResources().getColor(R.color.re));
+                    evStMon.setBackgroundTintList(getResources().getColorStateList(R.color.red));
                     return;
                 }
                 InsertMonitor();
@@ -324,6 +378,28 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("SCAN_FORMATS", "CODE_128");
                 startActivityForResult(intent, 0);
             }
+        });
+
+        evStMon.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+                    if(evStMon.getText().length()>0) {
+                        evStMon.setBackgroundTintList(getResources().getColorStateList(R.color.colorPrimary));
+                    }
+                    else {
+                        evStMon.setBackgroundTintList(getResources().getColorStateList(R.color.red));
+                    }
+                }
         });
 
     }
@@ -368,9 +444,14 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case "Tm":
                         String tmpMac = data.getStringExtra("SCAN_RESULT");
-                        tmpMac = tmpMac.substring(0,2)+":"+tmpMac.substring(2,4)+":"+
-                                tmpMac.substring(4,6)+":"+tmpMac.substring(6,8)+":"+
-                                tmpMac.substring(8,10)+":"+tmpMac.substring(10, tmpMac.length());
+                        try {
+                            tmpMac = tmpMac.substring(0,2)+":"+tmpMac.substring(2,4)+":"+
+                                    tmpMac.substring(4,6)+":"+tmpMac.substring(6,8)+":"+
+                                    tmpMac.substring(8,10)+":"+tmpMac.substring(10, tmpMac.length());
+                        } catch (Exception e) {
+                            tmpMac = "";
+                            e.printStackTrace();
+                        }
                         evMacTerm.setText(tmpMac);
                         break;
                     case "M":
@@ -442,6 +523,7 @@ public class MainActivity extends AppCompatActivity {
             os = new FileOutputStream(file);
             wb.write(os);
             Log.w("FileUtils", "Writing file" + file);
+            Toast.makeText(this, "List exported to "+file,Toast.LENGTH_LONG).show();
             success = true;
         } catch (IOException e) {
             Log.w("FileUtils", "Error writing " + file, e);

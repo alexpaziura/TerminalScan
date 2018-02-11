@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android" >
     <item
         android:id="@+id/exportXLS"
-        android:icon="@android:drawable/ic_menu_save"
+        android:icon="@drawable/ic_xls"
         android:title="Export XLS"
         app:showAsAction="ifRoom"/>
 </menu>
