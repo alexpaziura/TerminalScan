@@ -6,10 +6,13 @@ package ua.gov.nfp.oleksii.terminalscan;
 
 import java.util.ArrayList;
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class ListTermAdapter extends BaseAdapter {
@@ -18,7 +21,6 @@ public class ListTermAdapter extends BaseAdapter {
     ArrayList<String> ID;
     ArrayList<String> ST;
     ArrayList<String> MAC;
-
 
     public ListTermAdapter(
             Context context2,
@@ -49,7 +51,7 @@ public class ListTermAdapter extends BaseAdapter {
         return 0;
     }
 
-    public View getView(int position, View child, ViewGroup parent) {
+    public View getView(final int position, View child, ViewGroup parent) {
 
         Holder holder;
 
@@ -65,7 +67,7 @@ public class ListTermAdapter extends BaseAdapter {
             holder.tvId = (TextView) child.findViewById(R.id.tvID);
             holder.tvSt = (TextView) child.findViewById(R.id.tvSt);
             holder.tvMac = (TextView) child.findViewById(R.id.tvMac);
-
+           // holder.btnDel = (ImageButton) child.findViewById(R.id.btnDel);
             child.setTag(holder);
 
         } else {
@@ -73,9 +75,18 @@ public class ListTermAdapter extends BaseAdapter {
             holder = (Holder) child.getTag();
         }
         holder.tvId.setText(ID.get(position));
-        holder.tvSt.setText(ST.get(position));
-        holder.tvMac.setText(MAC.get(position));
+        holder.tvSt.setText("Service Tag: "+ST.get(position));
+        holder.tvMac.setText("MAC: "+MAC.get(position));
+      /*  holder.btnDel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sqLiteDatabase = sqLiteHelper.getWritableDatabase();
 
+                sqLiteDatabase.execSQL("DELETE FROM " + SQLiteHelper.TABLE_NAME + " WHERE " + SQLiteHelper.Table_Column_ID
+                        + "=" + ID.get(position) + "");
+                //MainActivity.ShowSQLiteDBdata();
+            }
+        });*/
         return child;
     }
 
@@ -84,6 +95,7 @@ public class ListTermAdapter extends BaseAdapter {
         TextView tvId;
         TextView tvSt;
         TextView tvMac;
+        //ImageButton btnDel;
     }
 
 }

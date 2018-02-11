@@ -39,17 +39,12 @@
                         android:orientation="vertical">
 
 
-                        <TextView
-                            android:id="@+id/text1"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Text tab 1" />
-
                         <ListView
                             android:id="@+id/lvTerm"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            />
+                            android:divider="@color/colorPrimary"
+                            android:dividerHeight="2dp" />
 
                     </LinearLayout>
 
@@ -59,18 +54,12 @@
                         android:layout_height="match_parent"
                         android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/text2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-
-                            android:text="Text Tab 2" />
-
                         <ListView
                             android:id="@+id/lvMon"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            />
+                            android:divider="@color/colorPrimary"
+                            android:dividerHeight="2dp" />
 
                     </LinearLayout>
                 </FrameLayout>

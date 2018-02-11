@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -9,17 +10,18 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginEnd="10dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="5dp"
         android:layout_gravity="center_vertical"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="16dp"
         android:minWidth="40dp"
         android:text="##"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#050505" />
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/ll"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/tvID"
         android:orientation="vertical">
@@ -42,7 +44,19 @@
             android:text="MAC:"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="#050505" />
+
     </LinearLayout>
+
+    <!--<ImageButton
+        android:id="@+id/btnDel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/transparent"
+        app:srcCompat="@android:drawable/ic_delete" />-->
+
 </RelativeLayout>
 
 
